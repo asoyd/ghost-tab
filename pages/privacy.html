@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Ghost Tab</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0d11; --surface: #16161e; --border: #2a2a38;
+      --accent: #7c6aff; --text: #e2e2f0; --muted: #9090a8;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      padding: 48px 20px; display: flex; justify-content: center;
+    }
+    .container { max-width: 560px; width: 100%; }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 20px; font-weight: 800; margin-bottom: 36px;
+    }
+    h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .updated { font-size: 12px; color: var(--muted); margin-bottom: 32px; }
+    h2 { font-size: 14px; font-weight: 700; color: var(--accent); margin: 24px 0 8px; }
+    p { font-size: 14px; line-height: 1.7; color: var(--muted); }
+    p + p { margin-top: 10px; }
+    .highlight {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px; padding: 16px 18px; margin: 20px 0;
+      font-size: 14px; line-height: 1.7;
+    }
+    .highlight strong { color: var(--text); }
+    ul { margin: 8px 0 0 18px; }
+    ul li { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">👻 Ghost Tab</div>
+
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 2026</p>
+
+    <div class="highlight">
+      <strong>Short version:</strong> Ghost Tab collects nothing. No data ever leaves your device. There are no servers, no analytics, no accounts, and no third-party services of any kind.
+    </div>
+
+    <h2>What data we collect</h2>
+    <p>None. Ghost Tab does not collect, transmit, or share any personal data.</p>
+
+    <h2>What is stored locally</h2>
+    <p>Ghost Tab stores the following data on your device only, using <code>chrome.storage.local</code>:</p>
+    <ul>
+      <li>Names and URLs of saved Ghost Sessions you create</li>
+      <li>Names and URLs of saved Workspaces you create</li>
+      <li>A flag for whether you have dismissed the incognito setup tip</li>
+    </ul>
+    <p>This data never leaves your browser. It is not encrypted (it contains only URLs and names, not passwords). You can delete it at any time by removing the extension.</p>
+
+    <h2>Network requests</h2>
+    <p>Ghost Tab makes zero network requests. It has no backend, no API, and no telemetry. You can verify this by inspecting the source code.</p>
+
+    <h2>Permissions used</h2>
+    <ul>
+      <li><strong>tabs</strong> — to read the current tab's URL when you click "Open current page"</li>
+      <li><strong>contextMenus</strong> — to add the right-click "Open in Ghost Tab" menu item</li>
+      <li><strong>storage</strong> — to save your sessions and workspaces locally</li>
+    </ul>
+    <p>No permission is used to read page content, track browsing history, or access any personal information.</p>
+
+    <h2>Third-party services</h2>
+    <p>None. Ghost Tab does not use analytics, crash reporting, advertising, or any external service.</p>
+
+    <h2>Passwords</h2>
+    <p>Ghost Tab does not store passwords. We recommend using <a href="https://bitwarden.com" target="_blank">Bitwarden</a> alongside Ghost Tab for credential management.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Open an issue on <a href="https://github.com/asoyd/ghost-tab" target="_blank">GitHub</a>.</p>
+  </div>
+</body>
+</html>
