@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Ghost Tab</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0d0d11;
+      --surface: #16161e;
+      --border:  #2a2a38;
+      --accent:  #7c6aff;
+      --accent2: #34d399;
+      --text:    #e2e2f0;
+      --muted:   #9090a8;
+      --radius:  12px;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh; padding: 48px 20px 64px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    .container { max-width: 600px; width: 100%; }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 48px; }
+    .ghost {
+      font-size: 64px; display: block; margin-bottom: 18px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    h1 {
+      font-size: 34px; font-weight: 800; letter-spacing: -1px;
+      line-height: 1.1; margin-bottom: 12px;
+    }
+    h1 .hl { color: var(--accent); }
+    .tagline { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+    /* Mode cards */
+    .modes {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 36px;
+    }
+    .mode-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+    }
+    .mode-card.ghost-card { border-color: var(--accent); }
+    .mode-card.work-card  { border-color: var(--accent2); }
+    .mode-icon { font-size: 28px; display: block; margin-bottom: 10px; }
+    .mode-title { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+    .mode-title.ghost { color: var(--accent); }
+    .mode-title.work  { color: var(--accent2); }
+    .mode-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .mode-tag {
+      display: inline-block; margin-top: 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 3px 8px; border-radius: 20px;
+    }
+    .mode-tag.ghost { background: #2e2850; color: var(--accent); }
+    .mode-tag.work  { background: #0f2e22; color: var(--accent2); }
+
+    /* Setup section */
+    .setup {
+      background: var(--surface); border: 1px solid var(--accent);
+      border-radius: var(--radius); padding: 22px; margin-bottom: 32px;
+    }
+    .setup-title {
+      font-size: 16px; font-weight: 800; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .setup-badge {
+      font-size: 10px; font-weight: 700; background: var(--accent);
+      color: #fff; padding: 2px 8px; border-radius: 20px;
+    }
+    .setup-sub { font-size: 12px; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
+
+    .steps { display: flex; flex-direction: column; gap: 12px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: 12px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text { font-size: 13px; line-height: 1.6; padding-top: 3px; }
+    .step-text code {
+      background: #2e2850; color: var(--accent);
+      padding: 1px 7px; border-radius: 4px; font-size: 12px;
+    }
+    .step-text strong { color: var(--text); }
+
+    .browser-tabs {
+      display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
+    }
+    .browser-tab {
+      background: #1e1e2a; border: 1px solid var(--border);
+      border-radius: 6px; padding: 6px 12px;
+      font-size: 11px; color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* CTA */
+    .cta { text-align: center; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 999px;
+      padding: 14px 32px; font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: background 0.15s, transform 0.1s;
+    }
+    .cta-btn:hover { background: #6b57f0; }
+    .cta-btn:active { transform: scale(0.97); }
+    .cta-note { margin-top: 12px; font-size: 11px; color: var(--muted); }
+    .badges {
+      display: flex; justify-content: center; gap: 16px; margin-top: 8px;
+    }
+    .badge { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+    .badge::before { content: "✓"; color: var(--accent2); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <span class="ghost">👻</span>
+      <h1>Welcome to <span class="hl">Ghost Tab</span></h1>
+      <p class="tagline">Log into the same site as multiple users at once.<br>Plus save and reopen groups of tabs in one click.</p>
+    </div>
+
+    <!-- Two modes -->
+    <div class="modes">
+      <div class="mode-card ghost-card">
+        <span class="mode-icon">👻</span>
+        <div class="mode-title ghost">Ghost Sessions</div>
+        <p class="mode-desc">Opens URLs in a fresh incognito window — completely isolated cookies, separate login state. Perfect for testing multiple accounts simultaneously.</p>
+        <span class="mode-tag ghost">Isolated · Incognito</span>
+      </div>
+      <div class="mode-card work-card">
+        <span class="mode-icon">🗂</span>
+        <div class="mode-title work">Workspaces</div>
+        <p class="mode-desc">Groups of URLs that open together in a normal window. Cookies and logins persist between sessions. Great for project tab sets.</p>
+        <span class="mode-tag work">Persistent · Normal window</span>
+      </div>
+    </div>
+
+    <!-- One-time incognito setup -->
+    <div class="setup">
+      <div class="setup-title">
+        ⚡ One-time setup required for Ghost Sessions
+        <span class="setup-badge">Required</span>
+      </div>
+      <p class="setup-sub">
+        Browsers block extensions from opening incognito windows by default — you need to allow it once. This takes about 20 seconds and never needs to be done again.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            Open your browser's extensions page. Type this in your address bar:
+            <div class="browser-tabs">
+              <div class="browser-tab">🔵 Edge: <code>edge://extensions</code></div>
+              <div class="browser-tab">🦁 Brave: <code>brave://extensions</code></div>
+              <div class="browser-tab">🟡 Chrome: <code>chrome://extensions</code></div>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Find <strong>Ghost Tab</strong> in the list and click <strong>Details</strong>.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Scroll down and toggle <strong>"Allow in InPrivate"</strong> (Edge) or <strong>"Allow in Incognito"</strong> (Brave/Chrome) to <strong>ON</strong>.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">Done! Come back and click the 👻 icon — Ghost Sessions will now work.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <button class="cta-btn" id="ctaBtn">Let's go →</button>
+      <div class="badges">
+        <span class="badge">No account</span>
+        <span class="badge">No tracking</span>
+        <span class="badge">100% local</span>
+      </div>
+    </div>
+
+  </div>
+  <script src="onboarding.js"></script>
+</body>
+</html>
